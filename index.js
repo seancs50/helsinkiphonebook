@@ -1,14 +1,19 @@
-const mongoose = require('mongoose')
+
 require('dotenv').config()
-url=process.env.MONGODB_URI
-mongoose.set('strictQuery',false)
-mongoose.connect(url)
+
 const express = require('express')
 var morgan = require('morgan')
 const app = express()
 const cors = require('cors')
 app.use(cors())
 app.use(express.static('build'))
+
+const mongoose = require('mongoose')
+url=process.env.MONGODB_URI
+mongoose.set('strictQuery',false)
+mongoose.connect(url)
+console.log(url)
+
 // dont forget this to handle json POST requests!!
 app.use(express.json())
 
@@ -110,6 +115,7 @@ app.put('/api/persons/:id',(request, response, next) => {
   // [options.new=false] «Boolean» if true, return the modified document rather than the original
   Person.findByIdAndUpdate(request.params.id, person, { new: true })
     .then(updatedPerson => {
+      
       response.json(updatedPerson)
     })
     .catch(error => next(error))
@@ -169,12 +175,12 @@ app.post('/api/persons', (request, response, next ) => {
     entry.save().then(result => {
         console.log(`added ${body.name} number ${body.number} to phonebook`)
         console.log(JSON.stringify(result))
-        Person.find({}).then(persons => {
-            response.json(persons)
+        
+            response.json(result)
           })
           .catch(error => next(error))
         })
-      })
+      
         //mongoose.connection.close()
     
 
