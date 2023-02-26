@@ -10,7 +10,7 @@
     "build:ui": "rm -rf build && cd ../phonebook-frontend1 && npm run build && cp -r build ../helsinkifullstack-phonebook-server-main",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild &&  git push "
   },
-  "author": "seancs50",
+  "author": "seancs50/1",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
