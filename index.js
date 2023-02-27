@@ -9,8 +9,7 @@ app.use(cors())
 app.use(express.static('build'))
 
 const mongoose = require('mongoose')
-//url=process.env.MONGODB_URI
-url='mongodb://sean1:sean1@ac-6kvy95s-shard-00-00.ytrjd7q.mongodb.net:27017,ac-6kvy95s-shard-00-01.ytrjd7q.mongodb.net:27017,ac-6kvy95s-shard-00-02.ytrjd7q.mongodb.net:27017/phonebookApp?ssl=true&replicaSet=atlas-11kq5t-shard-0&authSource=admin&retryWrites=true&w=majority'
+url=process.env.MONGODB_URI
 mongoose.connect(url)
 console.log("URL",url)
 
