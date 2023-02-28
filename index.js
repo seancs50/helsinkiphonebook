@@ -1,4 +1,4 @@
-
+// store enviroment variables in render enviroment WITHOUT QUOTATION MARKS!!
 require('dotenv').config()
 
 const express = require('express')
